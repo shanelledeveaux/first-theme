@@ -1,0 +1,13 @@
+<h2>
+  {{ collections.frontpage }}
+</h2>
+
+{% for product in collections['frontpage'].products %}
+  <div>
+    <a href="{{product.url}}" />
+    <img src="{{product.featured_image | img_url: 'medium'}}" />
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.price | money }}</p>
+  </div>
+  {{- product.title | link_to: product.url }}
+{% endfor %}
