@@ -1,0 +1,18 @@
+{% paginate search.results by 4 %}
+  {% if search.performed %}
+    <h1>results</h1>
+
+    {% for result in search.results %}
+      {% if result.object_type == 'page' %}
+        <p>page {{ result.title }}</p>
+      {% elsif result.object_type == 'article' %}
+        <p>article {{ result.title }}</p>
+      {% else %}
+        <p>{{ result.title }}</p>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <h1>try searching</h1>
+  {% endif %}
+  {{ paginate | default_pagination }}
+{% endpaginate %}
