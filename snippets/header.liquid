@@ -7,8 +7,10 @@
     {%- endfor %}
   </ul>
 
-  <form action="/search">
-    <input type="search" name="q" />
-    <button type="submit">Search</button>
-  </form>
+  {% if settings.show_form %}
+    <form action="/search">
+      <input type="search" name="q" />
+      <button type="submit">Search</button>
+    </form>
+  {% endif %}
 </header>
